@@ -5,4 +5,4 @@
 + Do not use ARM Cortex-M Series or things will be messed up due to heavy use of floating-point operations (which are not directly supported on cortex-M on default)
   * ARM Cortex M4F with floating-point mode enabled may be used
 + Pointers are used efficiently so there's no need for garbage collection
-  * Design consumes a very small portion of RAM, sth between 10kB to 1Mb (with respect to neural network hyperparameters)
+  * Design consumes a very small portion of RAM, sth between 10KB to 1MB (depending on neural network hyperparameters)
