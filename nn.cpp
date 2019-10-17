@@ -152,7 +152,7 @@ int MLP::predict(float** x, bool learning)
 
     if (learning == true)
     {
-        Utils::softmax(action, output, 1, nActions)
+        Utils::softmax(action, output, 1, nActions);
     }
     else
     {
