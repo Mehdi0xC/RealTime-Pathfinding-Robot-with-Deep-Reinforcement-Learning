@@ -164,7 +164,7 @@ void Utils::sigma(float** result, float ** x, int r, int c)
 }
 
 // FUNCTION FOR CALCULATING SOFTMAX FUNCTION
-void Utils::softmax(float** result, float ** x, int r, int c, float temperature)
+void Utils::softmax(float** result, float ** x, int r, int c)
 {
         for(int i = 0 ; i < r ; i++)
         for(int j = 0 ; j < c ; j++)
