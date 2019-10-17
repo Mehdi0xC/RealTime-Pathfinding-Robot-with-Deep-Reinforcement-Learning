@@ -12,6 +12,7 @@ class Config
     const static int nSamples = 4;
     const static int memoryCapacity = 1000;
     const static int softmaxTemperature = 10;
+    const static int learningIterations = 2500;
 }; 
 
 #endif
