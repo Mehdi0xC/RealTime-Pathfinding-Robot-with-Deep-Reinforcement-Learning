@@ -181,11 +181,6 @@ void Utils::softmax(float** result, float ** x, int r, int c, float temperature)
 
 }
 
-def softmax(A):
-    expA = np.exp(A/learningCoreSettings["softmaxTemperature"])
-    return expA / expA.sum()
-
-
 // FUNCTION FOR CALCULATING PARTIAL SUM
 void Utils::partialSum(float** result,  float** px, int r, int c)
 {

@@ -20,6 +20,8 @@ class Utils
         static void    sigma(float** result, float ** x, int r, int c);
         static void    partialSum(float** result,  float** px, int r, int c);
         static void    rewarder(float** reward, std::string command);
+        static void    softmax(float** result, float ** x, int r, int c, float temperature);
+
 }; 
 
 #endif
