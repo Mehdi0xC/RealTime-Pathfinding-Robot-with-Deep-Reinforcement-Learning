@@ -138,19 +138,25 @@ void MLP::learn(float** batchState, float** batchNextState, float** batchReward,
     Utils::sum(b1, db1, 1, nNeurons);
 }
 
-int MLP::predict(float** x)
+int MLP::predict(float** x, bool learning)
 {
     Utils::clear(hiddenLayerOutput, 1, nNeurons);
     Utils::clear(output, 1, nActions);
     Utils::clearIntegers(action, 1, 1);
 
-
-    
     Utils::dot(hiddenLayerOutput, x, W1, 1, nStates, nNeurons);
     Utils::sum(hiddenLayerOutput, b1, 1, nNeurons);
     Utils::relu(hiddenLayerOutput, 1, nNeurons);
     Utils::dot(output, hiddenLayerOutput, W2, 1, nNeurons, nActions);
     Utils::sum(output, b2, 1, nActions);
-    Utils::argMax(action, output, 1, nActions, 1);
+
+    if (learning == true)
+    {
+
+    }
+    else
+    {
+        Utils::argMax(action, output, 1, nActions, 1);
+    }
     return action[0][0];
 }

@@ -163,6 +163,29 @@ void Utils::sigma(float** result, float ** x, int r, int c)
         result[0][j] += x[i][j];
 }
 
+// FUNCTION FOR CALCULATING SOFTMAX FUNCTION
+void Utils::softmax(float** result, float ** x, int r, int c, float temperature)
+{
+        for(int i = 0 ; i < r ; i++)
+        for(int j = 0 ; j < c ; j++)
+        result[i][j] = exp(x[i][j]/Config::softmaxTemperature);
+
+        float sumExponents = 0;
+        for(int i = 0 ; i < r ; i++)
+        for(int j = 0 ; j < c ; j++)
+        sumExponents += result[i][j];
+
+        for(int i = 0 ; i < r ; i++)
+        for(int j = 0 ; j < c ; j++)
+        result[i][j] = result[i][j]/ sumExponents;
+
+}
+
+def softmax(A):
+    expA = np.exp(A/learningCoreSettings["softmaxTemperature"])
+    return expA / expA.sum()
+
+
 // FUNCTION FOR CALCULATING PARTIAL SUM
 void Utils::partialSum(float** result,  float** px, int r, int c)
 {
@@ -178,4 +201,3 @@ void Utils::rewarder(float** reward, string command)
     else
         reward[0][0] = -1;
 }
-

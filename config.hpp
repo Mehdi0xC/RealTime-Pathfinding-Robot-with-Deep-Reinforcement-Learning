@@ -11,6 +11,7 @@ class Config
     constexpr static float learningRate = 0.001;
     const static int nSamples = 4;
     const static int memoryCapacity = 1000;
+    const static int softmaxTemperature = 10;
 }; 
 
 #endif
