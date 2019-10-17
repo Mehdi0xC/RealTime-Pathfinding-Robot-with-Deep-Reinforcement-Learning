@@ -19,6 +19,7 @@ MLP::MLP()
     std::random_device rd;
     std::mt19937 gen(rd());
     std::normal_distribution<float> d(0, 1);
+    std::uniform_real_distribution<float> u(0, 1);
     
     W1 = Utils::create2DArray(nStates,nNeurons);
     b1 = Utils::create2DArray(1,nNeurons);
@@ -152,7 +153,16 @@ int MLP::predict(float** x, bool learning)
 
     if (learning == true)
     {
-        Utils::softmax(action, output, 1, nActions);
+        Utils::softmax(output, output, 1, nActions);
+        for(int i=1; i<nActions; i++)
+            output[0][i] += output[0][i-1];
+        std::uniform_real_distribution<float> u(0, 1);
+
+        float randomNumber = 1*u(gen);
+
+        for(int i=0; i<nActions; i++)
+            if(randomNumber<output[0][i])
+                action[0][0] = i;
     }
     else
     {
