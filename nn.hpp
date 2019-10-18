@@ -45,7 +45,7 @@ class MLP
         float  ** output;
         float ** dOutput;
         void learn(float** batchState, float** batchNextState, float** batchReward, int** batchAction);
-        int predict(float** x);        
+        int predict(float** x, bool learning);        
 }; 
 
 #endif
