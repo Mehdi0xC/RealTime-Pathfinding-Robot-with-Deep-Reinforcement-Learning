@@ -1,9 +1,10 @@
+#include <random>
 #ifndef NN_HPP_
 #define NN_HPP_
 
 
-class MLP 
-{ 
+class MLP
+{
     public:
         MLP();
     	float  ** W1;
@@ -27,7 +28,7 @@ class MLP
         float  ** batchHiddenLayerOutput;
         float  ** batchOutput;
         float  ** batchNextOutput;
-
+        bool init;
         float  ** batchHiddenLayerNextOutput;
         float  ** target;
         float  ** error;
@@ -37,6 +38,7 @@ class MLP
         float  ** db2;
         float  ** db1;
         float  ** derror;
+        std::random_device device;
         int  ** action;
         float  ** W2Transposed;
         float  ** batchHiddenLayerOutputTransposed;
@@ -45,7 +47,7 @@ class MLP
         float  ** output;
         float ** dOutput;
         void learn(float** batchState, float** batchNextState, float** batchReward, int** batchAction);
-        int predict(float** x, bool learning);        
-}; 
+        int predict(float** x, bool learning);
+};
 
 #endif
