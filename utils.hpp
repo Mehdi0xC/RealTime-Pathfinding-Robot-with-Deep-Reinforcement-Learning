@@ -1,6 +1,8 @@
 #ifndef UTILS_H_
 #define UTILS_H_
 #include <string>
+#include "xil_types.h"
+
 class Utils
 {
     public:
@@ -21,7 +23,7 @@ class Utils
         static void    partialSum(float** result,  float** px, int r, int c);
         static void    rewarder(float** reward, std::string command);
         static void    softmax(float** result, float ** x, int r, int c);
-
+        static u32 	float2fix(float input);
 };
 
 #endif
