@@ -2,6 +2,7 @@
 #include <string>
 #include "config.hpp"
 #include "utils.hpp"
+#include <math.h>
 using namespace std;
 
 // FUNCTION FOR DECODING STATES INCOMING FROM UART COMMANDS
@@ -129,8 +130,8 @@ void Utils::argMax(int** result, float **x, int r, int c, int axis)
         {
             max = x[i][j];
             result[0][j] = i;
-        }    
-    } 
+        }
+    }
     }
     else
     {
@@ -142,8 +143,8 @@ void Utils::argMax(int** result, float **x, int r, int c, int axis)
         {
             max = x[i][j];
             result[i][0] = j;
-        }    
-    } 
+        }
+    }
     }
 }
 
