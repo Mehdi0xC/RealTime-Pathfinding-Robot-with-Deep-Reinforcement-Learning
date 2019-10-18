@@ -1,9 +1,9 @@
 #ifndef UTILS_H_
 #define UTILS_H_
 #include <string>
-class Utils 
-{ 
-    public: 
+class Utils
+{
+    public:
         static void    stateDecoder(float ** state, std::string command);
         static float** create2DArray(int r, int c);
         static void    clear(float** x, int r, int c);
@@ -22,6 +22,6 @@ class Utils
         static void    rewarder(float** reward, std::string command);
         static void    softmax(float** result, float ** x, int r, int c);
 
-}; 
+};
 
 #endif
