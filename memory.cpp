@@ -17,7 +17,7 @@ Memory::Memory()
         states = Utils::create2DArray(size, nStates);
     	nextStates = Utils::create2DArray(size, nStates);
     	rewards = Utils::create2DArray(size, 1);
-    	actions = Utils::create2DArrayOfIntegers(size, 1);  
+    	actions = Utils::create2DArrayOfIntegers(size, 1);
 }
 
 void Memory::push(float** state, float** nextState, float** reward, int** action)
@@ -50,7 +50,7 @@ void Memory::generateRandomIndices(int** result)
     {
     uniform_int_distribution<int> r(0,size-1);
     for (int i = 0 ; i < nSamples ; i++)
-        result[i][0] = r(engine);        
+        result[i][0] = r(engine);
     }
 }
 
@@ -58,7 +58,7 @@ void Memory::sampleStates(float** result, int** indices)
 {
     for (int i = 0 ; i < nSamples ; i++)
     for (int j = 0 ; j < nStates ; j++)
-        result[i][j] = states[indices[i][0]][j];  
+        result[i][j] = states[indices[i][0]][j];
 }
 
 void Memory::sampleNextStates(float** result, int** indices)
