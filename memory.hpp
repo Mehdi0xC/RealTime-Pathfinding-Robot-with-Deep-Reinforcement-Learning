@@ -2,7 +2,7 @@
 #define MEMORY_H__
 #include <random>
 
-class Memory 
+class Memory
 {
     public:
         Memory();
