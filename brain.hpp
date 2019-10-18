@@ -2,9 +2,9 @@
 #define BRAIN_H_
 #include "memory.hpp"
 #include "nn.hpp"
-class DQN 
-{ 
-    // Access specifier 
+class DQN
+{
+    // Access specifier
     public:
         DQN();
         int nStates;
@@ -24,5 +24,5 @@ class DQN
         int** randomIndices;
         int update(float** reward, float** newState);
 
-}; 
+};
 #endif
