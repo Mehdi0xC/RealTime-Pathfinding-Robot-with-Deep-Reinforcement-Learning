@@ -28,12 +28,12 @@ int DQN::update(float** reward, float** newState)
 {
     memory.push(lastState, newState, reward, lastAction);
 
-    if(memory.counter < Config::learningIterations) 
+    if(memory.counter < Config::learningIterations)
         action = network.predict(newState, true);
     else
         action = network.predict(newState, false);
 
-    if(memory.counter >= nSamples && memory.counter < Config::learningIterations) 
+    if(memory.counter >= nSamples && memory.counter < Config::learningIterations)
     {
         memory.generateRandomIndices(randomIndices);
         memory.sampleStates(batchState, randomIndices);
@@ -42,7 +42,7 @@ int DQN::update(float** reward, float** newState)
         memory.sampleActions(batchAction, randomIndices);
         network.learn(batchState, batchNextState, batchReward, batchAction);
     }
-    
+
     lastAction[0][0] = action;
     Utils::copy(lastState,newState, 1, nStates);
 
