@@ -197,3 +197,35 @@ void Utils::rewarder(float** reward, string command)
     else
         reward[0][0] = -1;
 }
+
+u32 Utils::float2fix(float input)
+{
+	u32 temp = 0;
+
+	int fixedPoint[32];
+
+	for (int i = 0 ; i < 32 ; i++)
+		fixedPoint[i] = 0;
+
+
+	float test = input;
+
+	if (test < 0)
+	{
+		fixedPoint[Config::FP_Size-1] = 1;
+		test = test*-1;
+	}
+	for(int i = Config::FP_Size - Config::FR_Size - 2 ; i > -1*Config::FR_Size-1; i--)
+	{
+		if (test >= (pow(2,i)))
+		{
+				fixedPoint[Config::FR_Size+i]=1;
+				test = test - (pow(2,i));
+		}
+
+		}
+
+	    for(int i = 0; i < 32; i++)
+	    	temp = temp+(pow(2,i))*fixedPoint[i];
+	    return temp;
+}
