@@ -18,5 +18,5 @@ int main()
         cin >> command;
         Utils::rewarder(reward, command);
         cout << agent.update(reward, state) << endl;
-    }    
+    }
 }
